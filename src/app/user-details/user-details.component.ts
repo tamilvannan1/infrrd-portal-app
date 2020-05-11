@@ -21,16 +21,6 @@ export class UserDetailsComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    console.log('In OnInit');
-
-    /*this.dataService.getUsers().subscribe({
-      next: users => {
-        this.users = users;
-        this.filteredUsers = this.users;
-      },
-      error: err => this.errorMessage = err
-    });*/
-
     this.filterObject = {
       filterByLocation: true,
       locationInput: 'bangalore'
@@ -40,6 +30,7 @@ export class UserDetailsComponent implements OnInit {
 
   }
 
+  // Get users details
   getUsers(filterObject: any): void{
     this.dataService.filterUsers(filterObject).subscribe({
       next: users => {
@@ -53,7 +44,7 @@ export class UserDetailsComponent implements OnInit {
     });
   }
 
-
+  // Filter user details based on location and team
   getFilteredUser(filterBy, filterData){
 
     this.filterObject = {};
@@ -63,11 +54,11 @@ export class UserDetailsComponent implements OnInit {
       this.filterObject.locationInput = 'bangalore';
     }
 
-    if(filterBy && filterBy == 'location' ){
+    if(filterBy && filterBy === 'location' ){
 
       this.getUsers(this.filterObject);
 
-    } else if(filterBy == 'team'){
+    } else if(filterBy === 'team'){
 
       this.filterObject.filterByTeam = true;
       this.filterObject.teamInput = filterData;
@@ -79,8 +70,7 @@ export class UserDetailsComponent implements OnInit {
     }
   }
 
-
-
+  // Filter users using submenu option
   filerUserDetails(filterOption:any):void {
     console.log('function called from submenu' + filterOption.team);
 
@@ -93,7 +83,4 @@ export class UserDetailsComponent implements OnInit {
 
     this.getUsers(this.filterObject);
   }
-
-
-
 }

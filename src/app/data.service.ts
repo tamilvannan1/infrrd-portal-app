@@ -2,10 +2,10 @@ import { Injectable } from '@angular/core';
 
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {catchError, filter, map, tap} from 'rxjs/operators';
-import {Observable, throwError} from "rxjs";
+import {Observable, throwError} from 'rxjs';
 
 import { IUser } from './user';
-import {isUndefined} from "util";
+import {isUndefined} from 'util';
 
 @Injectable({
   providedIn: 'root'
@@ -23,21 +23,10 @@ export class DataService {
     );
   }
 
-  /*getUserList(searchBy: string, inputData: string): Observable<IUser[]> {
-    if(searchBy == 'location'){
-      return this.getUsers().pipe(
-        map((users: IUser[]) => users.filter((user: IUser, index, users) => user.location == inputData)),
-      );
-    }
-  }*/
-
+  // Get filtered users
   filterUsers(filterObject?: any): Observable<IUser[]> {
-    console.log('filterObject' + JSON.stringify(filterObject));
-
-    //const filterDetails = filterObject;
 
     return this.getUsers().pipe(
-
       map(users => {
         // if filterBy is empty return all users
         if (isUndefined(filterObject.filterByLocation) &&
@@ -70,7 +59,7 @@ export class DataService {
 
           users.filter(function(user) {
 
-            if(filterObject.filterByLocation){
+            if (filterObject.filterByLocation) {
               if (user.currentTeam.toLowerCase().includes(filterObject.teamInput.toLowerCase()) &&
                   user.location.toLowerCase().includes(filterObject.locationInput.toLowerCase())) {
                 filteredUsers.push(user);
@@ -82,19 +71,19 @@ export class DataService {
             }
 
           });
-
           return filteredUsers;
-        } else if(filterObject && filterObject.filterByAll){ // Search all the combination
+
+        } else if(filterObject && filterObject.filterByAll) { // Search all the combination
 
           users.filter(function(user) {
 
-              if (user.currentTeam.toLowerCase()== filterObject.filterBy.team.toLowerCase() ||
-                  user.location.toLowerCase()==filterObject.filterBy.location.toLowerCase() ||
-                  user.rollType.toLowerCase()==filterObject.filterBy.rollType.toLowerCase() ||
-                  user.designation.toLowerCase()==filterObject.filterBy.designation.toLowerCase() ||
-                  user.experience.toLowerCase()==filterObject.filterBy.experience.toLowerCase() ||
-                  user.department.toLowerCase()==filterObject.filterBy.department.toLowerCase() ||
-                  user.doj==filterObject.filterBy.doj
+              if (user.currentTeam.toLowerCase() == filterObject.filterBy.team.toLowerCase() ||
+                  user.location.toLowerCase() == filterObject.filterBy.location.toLowerCase() ||
+                  user.rollType.toLowerCase() == filterObject.filterBy.rollType.toLowerCase() ||
+                  user.designation.toLowerCase() == filterObject.filterBy.designation.toLowerCase() ||
+                  user.experience.toLowerCase() == filterObject.filterBy.experience.toLowerCase() ||
+                  user.department.toLowerCase() == filterObject.filterBy.department.toLowerCase() ||
+                  user.doj == filterObject.filterBy.doj
               ) {
                 filteredUsers.push(user);
               }
@@ -102,9 +91,6 @@ export class DataService {
 
           return filteredUsers;
         }
-
-
-
       })
     );
   }

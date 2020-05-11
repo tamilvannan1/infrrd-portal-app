@@ -21,8 +21,6 @@ export class AppComponent {
     {value: 'Rustify', displayText: 'Rustify'}
   ];
 
-  showSubMenu: boolean = true;
-
-
+  showSubMenu: boolean = false;
 
 }

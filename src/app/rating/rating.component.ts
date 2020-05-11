@@ -13,7 +13,6 @@ export class RatingComponent implements OnInit {
   @Input() itemId: number;
   @Output() ratingClick: EventEmitter<any> = new EventEmitter<any>();
 
-
   noOfStar: any;
   inputName: string;
   ngOnInit() {

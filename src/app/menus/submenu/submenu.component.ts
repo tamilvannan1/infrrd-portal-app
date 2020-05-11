@@ -82,11 +82,4 @@ export class SubmenuComponent implements OnInit {
     this.filterInput = this.filterForm.value;
     this.filterEvent.emit(this.filterInput);
   }
-
-
-
-
-  function1(){
-    console.log('clicked');
-  }
 }
