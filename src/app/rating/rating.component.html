@@ -1,0 +1,23 @@
+<div fxLayout="wrap row">
+  <div *ngIf="rating" fxFlex="25%" class="rating-text"><label>{{rating}} Rating</label></div>
+  <div class="rating" fxFlex="75%">
+    <input type="radio" [name]="inputName" value="5" [checked]="rating===5" />
+    <label title="Five star" (click)='onClick(5)'>5 stars</label>
+
+    <input type="radio" [name]="inputName" value="4" [checked]="rating===4" />
+    <label title="Four star" (click)='onClick(4)'>4 stars</label>
+
+    <input type="radio" [name]="inputName" value="3" [checked]="rating===3" />
+    <label title="Three star" (click)='onClick(3)'>3 stars</label>
+
+    <input type="radio" [name]="inputName" value="2" [checked]="rating===2" />
+    <label title="Two star" (click)='onClick(2)'>2 stars</label>
+
+    <input type="radio" [name]="inputName" value="1" [checked]="rating===1" />
+    <label title="One star" (click)='onClick(1)'>1 star</label>
+  </div>
+</div>
+
+
+
+

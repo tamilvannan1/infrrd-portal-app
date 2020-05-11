@@ -1,0 +1,20 @@
+.example-container {
+  height: 600px;
+  background-color: #fff;
+  border: 1px solid lightgray;
+  box-shadow: 1px 0px #ccc;
+}
+
+.mat-select-panel-wrap {
+  flex-basis: 80%;
+  padding-left: 19px;
+}
+.mat-form-field {
+  width: 100%;
+}
+
+.mat-select-placeholder,
+.mat-select-value,
+.mat-select-trigger{
+  padding-left: 10px;
+}

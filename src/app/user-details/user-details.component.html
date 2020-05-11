@@ -1,0 +1,71 @@
+<div class="user-details">
+  <div fxLayout="wrap row" [style.margin-bottom]="'15px'">
+
+    <div fxFlex="50">{{userLength}} Result found</div>
+    <div fxFlex="50"
+         fxLayoutAlign="flex-end">
+      <input type="checkbox" name="isBangaloreEmp"
+             [(ngModel)]="isBangaloreEmp"
+             (ngModelChange)="getFilteredUser(isBangaloreEmp ? 'location':'')">
+      Show only bangalore employee
+    </div>
+
+  </div>
+
+  <div fxLayout="wrap row">
+    <div fxFlex="33"
+         fxFlex.md="33"
+         fxFlex.sm="50"
+         fxFlex.xs="100"
+         fxLayout="column"
+         style="padding: 5px;" *ngFor="let user of filteredUsers">
+      <mat-card>
+        <div fxLayout="wrap row" class="header-section">
+          <div fxFlex="20%">
+            <div mat-card-avatar class="example-header-image">
+              <mat-icon>account_circle</mat-icon>
+            </div>
+          </div>
+          <div fxFlex="65%">
+            <mat-card-title>{{user.firstName}}</mat-card-title>
+            <mat-card-subtitle>{{user.lastName}}</mat-card-subtitle>
+          </div>
+          <div fxFlex="15%">
+            <mat-icon class="near-me">near_me</mat-icon>
+          </div>
+        </div>
+
+        <div class="wrap row" class="rating-section">
+          <app-rating [rating]="user.rating" [itemId]="user.id"></app-rating>
+        </div>
+
+        <div class="experience-section">
+          <div fxFlex class="experience"><label>Experience:</label> {{user.experience}} </div>
+          <div class="divider"></div>
+          <div fxFlex class="doj"><label>Date of Joining:</label> {{user.doj}}</div>
+        </div>
+
+        <div class="team-section">
+          <label>Current Team:</label> {{user.currentTeam}}
+        </div>
+
+        <div class="manager-section">
+          <label>Reporting manager:</label> {{user.reportingManage}}
+        </div>
+
+        <div class="contect-detail-section" fxLayout="wrap row">
+          <div fxFlex="45%" class="phone-section">
+            <div><mat-icon class="phone-icon">call</mat-icon></div>
+            <div class="phone-number">{{user.mobile}}</div>
+          </div>
+          <div fxFlex="55%" class="mail-section">
+            <div><mat-icon class="email-icon">mail_outline</mat-icon></div>
+            <div class="email-id">{{user.email}}</div>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+
+  </div>
+
+</div>

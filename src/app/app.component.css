@@ -1,0 +1,13 @@
+mat-sidenav-content {
+  height: 100vh;
+}
+.mat-icon{
+  padding-right: 10px;
+}
+
+.drop-down-menu{
+  padding: 5px 10px;
+  border: 1px solid lightgray;
+  margin-top: 35px;
+  border-radius: 3px;
+}

@@ -1,0 +1,94 @@
+<div class="example-container">
+  <form [formGroup]="filterForm"
+        (ngSubmit)="filter()">
+
+    <mat-form-field>
+      <mat-label>Department</mat-label>
+      <mat-select placeholder="Choose Department"
+                  [(value)]="department"
+                  formControlName="department">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let department of departments" [value]="department.value">
+          {{department.displayText}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Roll Type</mat-label>
+      <mat-select placeholder="Roll Type"
+                  [(value)]="rollType"
+                  formControlName="rollType">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let rollType of subMenus[0].rollTypes" [value]="rollType.value">
+          {{rollType.displayText}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Designation</mat-label>
+      <mat-select placeholder="Roll Type"
+                  [(value)]="designation"
+                  formControlName="designation">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let designation of subMenus[0].designations" [value]="designation.value">
+          {{designation.displayText}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Experience</mat-label>
+      <mat-select placeholder="Experience"
+                  [(value)]="experience"
+                  formControlName="experience">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let experience of subMenus[0].experiences" [value]="experience.value">
+          {{experience.displayText}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Date Of Join</mat-label>
+      <mat-select placeholder="DOJ"
+                  [(value)]="doj"
+                  formControlName="doj">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let doj of subMenus[0].doj" [value]="doj.value">
+          {{doj.displayText}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Location</mat-label>
+      <mat-select placeholder="Locations"
+                  [(value)]="location"
+                  formControlName="location">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let location of subMenus[0].locations" [value]="location.value">
+          {{location.displayText}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Team</mat-label>
+      <mat-select placeholder="Team"
+                  [(value)]="team"
+                  formControlName="team">
+        <mat-option>None</mat-option>
+        <mat-option *ngFor="let team of subMenus[0].teams" [value]="team.value">
+          {{team.displayText}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button type="button" (click)="resetForm()" style="margin: 0 13px;">Clear</button>
+    <button mat-raised-button>Submit</button>
+  </form>
+</div>
+
+
